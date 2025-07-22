@@ -1,0 +1,39 @@
+to push the zeros to the right 
+
+#include<stdio.h>
+int main()
+{
+    int n; int arr[100];int i;int count=0;
+    printf("enter size of array:");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        printf("enter elements in %d: ",i+1);
+        scanf("%d",&arr[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        if(arr[i]!=0){
+        arr[count]=arr[i];
+        count++;
+        }
+    }
+    for(i=count;i<n;i++)
+    {
+        arr[count]=0;
+        count++;
+    }
+    
+for(i=0;i<n;i++){
+    printf("%d",arr[i]);
+}
+return 0;
+}
+output:
+
+enter size of array:4
+enter elements in 1: 4
+enter elements in 2: 0
+enter elements in 3: 0
+enter elements in 4: 7
+4700
