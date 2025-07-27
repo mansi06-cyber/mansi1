@@ -1,0 +1,62 @@
+spiral printing of the matrix in c
+#include <stdio.h>
+
+int main() {
+    int m, n;
+    int arr[100][100];  // use fixed size
+
+    // Input rows and columns
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    // Input matrix
+    printf("Enter the elements:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    int top = 0, bottom = m - 1;
+    int left = 0, right = n - 1;
+
+    printf("Spiral form:\n");
+
+    while (top <= bottom && left <= right) {
+        // Print top row
+        for (int j = left; j <= right; j++) {
+            printf("%d ", arr[top][j]);
+        }
+        top++;
+
+        // Print right column
+        for (int i = top; i <= bottom; i++) {
+            printf("%d ", arr[i][right]);
+        }
+        right--;
+
+        // Print bottom row
+        if (top <= bottom) {
+            for (int j = right; j >= left; j--) {
+                printf("%d ", arr[bottom][j]);
+            }
+            bottom--;
+        }
+
+        // Print left column
+        if (left <= right) {
+            for (int i = bottom; i >= top; i--) {
+                printf("%d ", arr[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return 0;
+}
+output:
+Enter number of rows and columns: 3 3
+Enter the elements:
+1 2 3
+4 5 6
+7 8 9
