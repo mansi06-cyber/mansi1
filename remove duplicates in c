@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+    int i;int j;int n;int arr[100];int ele;int pos;int k; 
+    printf("enter size:");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+    printf("enter elements in %d:",i+1);
+    scanf("%d",&arr[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[i]==arr[j]){
+            for(k=j;k<=n-1;k++){
+            arr[k]=arr[k+1];
+        }
+        n--;
+        j--;
+        }
+        }
+    }
+    printf("remove duplicates:");
+    for(i=0;i<n;i++){
+    printf("%d",arr[i]);
+}
+return 0;}
+ out put:
+enter size:5
+enter elements in 1:2
+enter elements in 2:2
+enter elements in 3:3
+enter elements in 4:3
+enter elements in 5:4
+remove duplicates:234
+
+=== Code Execution Successful ===
