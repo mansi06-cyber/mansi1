@@ -1,0 +1,21 @@
+words = ["apple", "", "banana", "", "cherry"]
+n = 5
+cleaned = [0] * n
+i = 0
+j = 0
+
+while i < n:
+    if words[i] != "":
+        cleaned[j] = words[i]
+        j += 1
+    i += 1
+
+# Print only the filled part of cleaned[]
+i = 0
+while i < j:
+    print(cleaned[i])
+    i += 1
+ output:
+apple  
+banana  
+cherry
