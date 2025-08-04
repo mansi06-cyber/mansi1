@@ -1,0 +1,38 @@
+reverse a linked list in c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the node structure
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to create a new node
+struct Node* createNode(int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to insert node at the end
+void insertEnd(struct Node** head, int value) {
+    struct Node* newNode = createNode(value);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    struct Node* temp = *head;
+    while (temp->next != NULL)
+
+
+output
+Enter number of elements: 5
+Enter value 1: 1
+Enter value 2: 2
+Enter value 3: 3
+Enter value 4: 4
+Enter value 5: 5
+Original list: 1 -> 2 -> 3 -> 4 -> 5 -> NULL
+Reversed list: 5 -> 4 -> 3 -> 2 -> 1 -> NULL
