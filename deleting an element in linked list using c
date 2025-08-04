@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define node structure
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Create a new node
+struct Node* createNode(int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Insert at end
+void insertEnd(struct Node** head, int value) {
+    struct Node* newNode = createNode(value);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    struct Node* temp = *head;
+    while (temp->next != NULL)
+        temp = temp->next;
+    temp->next = newNode;
+}
+
+// Delete node by value
+void deleteByValue(struct Node** head, int value) {
+    struct Node* temp = *head;
+    struct Node* prev = NULL;
+
+    // If head node itself holds the value
+    if (temp != NULL && temp->data == value) {
+        *head = temp->next;
+        free(temp);
+        return;
+    }
+
+    // Search for the value
+    while (temp != NULL && temp->data != value) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // If value not found
+    if (temp == NULL) {
+        printf("Value %d not found.\n", value);
+        return;
+    }
+
+    // Unlink node
+    prev->next = temp->next;
+    free(temp);
+}
+
+// Display list
+void printList(struct Node* head) {
+    while (head != NULL) {
+        printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+// Main function
+int main() {
+    struct Node* head = NULL;
+    int n, val, del;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &val);
+        insertEnd(&head, val);
+    }
+
+    printf("Linked List: ");
+    printList(head);
+
+    printf("Enter value to delete: ");
+    scanf("%d", &del);
+
+    deleteByValue(&head, del);
+
+    printf("After deletion: ");
+    printList(head);
+
+    return 0;
+}
