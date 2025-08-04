@@ -1,0 +1,59 @@
+// C program to find Nth node from end of linked list
+
+#include <stdio.h>
+
+// Link list node
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to find the Nth node from the last of a linked list
+int findNthFromLast(struct Node* head, int N) {
+    int len = 0, i;
+  
+    // Pointer to store the copy of head
+    struct Node* temp = head;
+
+    // Count the number of nodes in Linked List
+    while (temp != NULL) {
+        temp = temp->next;
+        len++;
+    }
+
+    // Check if value of N is not more than length of the linked list
+    if (len < N)
+        return -1;
+
+    temp = head;
+
+    // Get the (len - N + 1)th node from the beginning
+    for (i = 1; i < len - N + 1; i++)
+        temp = temp->next;
+
+    return temp->data;
+}
+
+// Function to create a new node
+struct Node* createNode(int new_data) {
+    struct Node* new_node = 
+       (struct Node*)malloc(sizeof(struct Node));
+    new_node->data = new_data;
+    new_node->next = NULL;
+    return new_node;
+}
+
+int main() {
+  
+    // Create a hard-coded linked list:
+    // 35 -> 15 -> 4 -> 20
+    struct Node* head = createNode(35);
+    head->next = createNode(15);
+    head->next->next = createNode(4);
+    head->next->next->next = createNode(20);
+  
+    // Function Call to find the 4th node from end
+    printf("%d\n", findNthFromLast(head, 4));
+
+    return 0;
+}
