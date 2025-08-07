@@ -1,0 +1,11 @@
+original = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+keys_to_extract = ['a', 'c']
+new_dict = {}
+
+for key in keys_to_extract:
+    if key in original:
+        new_dict[key] = original[key]
+
+print(new_dict)
+OUTPUT
+{'a': 1, 'c': 3}
