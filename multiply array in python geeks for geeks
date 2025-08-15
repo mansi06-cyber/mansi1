@@ -1,0 +1,16 @@
+multiply array
+#User function Template for python3
+
+class Solution:
+    def longest(self, arr, n):
+        pro=1
+        for x in  arr:
+            pro *=x
+        return pro
+    
+output:
+Input:
+5
+1 2 3 4 5
+Output:
+120
