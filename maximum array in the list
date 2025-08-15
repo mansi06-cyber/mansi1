@@ -1,0 +1,15 @@
+
+maximum array in the list in python gfgs
+
+
+class Solution:
+    def largest(self, arr : List[int]) -> int:
+        le=len(arr)
+        max=arr[0]
+        for i  in range(le):
+            if arr[i]>max:
+                max=arr[i]
+        return max
+        
+Input: arr = [1, 8, 7, 56, 90]
+Output: 90
