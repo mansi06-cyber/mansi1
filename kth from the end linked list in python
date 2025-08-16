@@ -1,0 +1,24 @@
+'''
+	{
+		# Node Class
+		class Node:
+		    def __init__(self, data):   # data -> value stored in node
+		        self.data = data
+		        self.next = None
+	}
+'''
+class Solution:
+    def getKthFromLast(self, head, k):
+        temp=head
+        len=0
+        while temp is not None:
+            len+=1
+            temp=temp.next
+        if k>len:
+            return -1
+        temp=head
+        for i in range(1,len-k+1):
+            temp=temp.next
+        return temp.data
+        
+            
