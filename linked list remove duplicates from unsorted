@@ -1,0 +1,39 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def createnode(data):
+        return Node(data)
+def duplicate(head):
+        ptr1=head
+        while ptr1 and ptr1.next is not None:
+            ptr2=ptr1
+            if ptr1.data==ptr2.next.data:
+                ptr2.next=ptr2.next.next
+            else:
+                ptr2=ptr2.next
+            ptr1=ptr1.next
+        return head
+n=int(input("enter no of nodes:"))
+val=int(input())
+head=createnode(val)
+temp=head
+for i in range(n-1):
+        val=int(input())
+        temp.next=createnode(val)
+        temp=temp.next
+head= duplicate(head)
+temp=head
+while temp:
+    print(temp.data,end="")
+    temp=temp.next
+        
+    output
+enter no of nodes:5
+2
+2
+3
+4
+5
+2345
+=== Code Execution Successful ===
